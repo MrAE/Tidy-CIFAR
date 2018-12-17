@@ -1,0 +1,66 @@
+---
+title: "Look At It"
+author: "Jesse Leigh Patsolic"
+output: 
+  html_document:
+    self_contained: true
+    keep_md: true
+---
+
+<!--
+### ### INITIAL COMMENTS HERE ###
+###
+#
+-->
+
+```{r render, eval=FALSE, echo=FALSE}
+require(rmarkdown)
+rmarkdown::render("lookAtIt.Rmd")
+system('open lookAtIt.html')
+```
+
+
+## Data Preparation 
+
+The data have been downloaded and saved as an `RData` file using the
+`tidyCIFAR.R` script. We load it here and proceed to plot a subset.
+
+```{r cc1}
+load('cifar100.RData')
+X <- cifar100$Xtrain
+Xg <- cifar100$XtrainGray
+```
+
+
+## Plot 25 randomly sampled images
+
+```{r p1, fig.height = 8, fig.width = 8}
+set.seed(123)
+par(bg=NA,mar=c(0,0,0,0),oma=c(0,0,0,0))
+par(mfrow = c(5,5))
+
+for(i in sample(nrow(X), 25)){
+  im <- aperm(array(X[i, ], dim = c(32, 32, 3)), perm = c(2,1,3))
+  plot(as.raster(im, max = 255))
+}
+```
+
+## Plot the corresponding gray scale images
+```{r p2, fig.height = 8, fig.width = 8}
+set.seed(123)
+par(bg=NA,mar=c(0,0,0,0),oma=c(0,0,0,0))
+par(mfrow = c(5,5))
+
+for(i in sample(nrow(Xg), 25)){
+  im <- aperm(array(Xg[i, ], dim = c(32, 32)))
+  plot(as.raster(im))
+}
+```
+
+<!--
+#   Time:
+##  Working status:
+### Comments:
+####Soli Deo Gloria
+--> 
+

@@ -3,7 +3,7 @@
 ### ### INITIAL COMMENTS HERE ###
 ###
 ### Jesse Leigh Patsolic 
-### 2018 <jpatsolic@jhu.edu>
+### 2018
 ### S.D.G 
 #
 
