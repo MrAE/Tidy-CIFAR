@@ -102,8 +102,8 @@ cifar100$YtrainFine <- YtrainFine
 ### Testing data
 cifar100$Xtest <- Xtest
 cifar100$XtestGray <- XtestGray
-cifar100$YtrainCoarse <- YtrainCoarse
-cifar100$YtrainFine <- YtrainFine
+cifar100$YtestCoarse <- YtestCoarse
+cifar100$YtestFine <- YtestFine
 
 save(cifar100, file = 'cifar100.RData')
 
