@@ -52,8 +52,8 @@ cl <- readLines(classFile)
 close(classFile)
 
 ## 
+Batch <- Xy[, 1]
 Ytrain <- cl[Xy[, 2] + 1]
-
 Xtrain <- Xy[, -c(1,2)]
 
 ### instantiate the matrix to store the gray scale version
@@ -100,6 +100,7 @@ cifar10 <- list()
 
 
 ### Training data
+cifar10$Batch <- Batch
 cifar10$Xtrain <- Xtrain
 cifar10$XtrainGray <- XtrainGray
 cifar10$Ytrain <- Ytrain
