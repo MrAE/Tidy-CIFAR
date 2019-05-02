@@ -12,7 +12,7 @@
 
 #### Uncomment the following lines to Download the data
 # download.file(url = 'http://www.cs.toronto.edu/~kriz/cifar-100-binary.tar.gz', 
-#               destfile = '~/data/cifar-100-binary-tar.gz')
+#               destfile = '~/data/CIFAR/cifar-100-binary-tar.gz')
 
 
 h <- w <- 32
@@ -23,7 +23,7 @@ n <- 50000
 
 
 ### Read in the training data and store in an n X 3074 matrix
-trainRead <- file("~/data/cifar-100-binary/train.bin", "rb")
+trainRead <- file("~/data/CIFAR/cifar-100-binary/train.bin", "rb")
 train.dat <- matrix(NA, n, h * w * ch + 2)
 for (i in 1:n){
   train.dat[i, ] <- as.integer(readBin(trainRead, what = raw(), n = (h * w * ch + 2)))
@@ -33,11 +33,11 @@ close(trainRead)
 
 
 ### Read in the coarse and fine label names
-coarseFile <- file("~/data/cifar-100-binary/coarse_label_names.txt", "r")
+coarseFile <- file("~/data/CIFAR/cifar-100-binary/coarse_label_names.txt", "r")
 coarse <- readLines(coarseFile)
 close(coarseFile)
 
-fineFile <- file("~/data/cifar-100-binary/fine_label_names.txt", "r")
+fineFile <- file("~/data/CIFAR/cifar-100-binary/fine_label_names.txt", "r")
 fine <- readLines(fineFile)
 close(fineFile)
 
@@ -62,7 +62,7 @@ for (i in 1:nrow(XtrainGray)){
 n <- 100 * 100
 
 ### Read in the testing data and store in an n X 3074 matrix
-testRead <- file("~/data/cifar-100-binary/test.bin", "rb")
+testRead <- file("~/data/CIFAR/cifar-100-binary/test.bin", "rb")
 test.dat <- matrix(NA, n, h * w * ch + 2)
 for (i in 1:n){
   test.dat[i, ] <- as.integer(readBin(testRead, what = raw(), n = (h * w * ch + 2)))
